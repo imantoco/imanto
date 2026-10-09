@@ -1,0 +1,4 @@
+{
+  "_como_usar": "Cada produto é um objeto em 'produtos'. status: 'disponivel' (mostra preço e botão para a página de venda) ou 'em-breve' (mostra 'me avise'). Ordem: disponíveis primeiro, na ordem do arquivo. Lista vazia mostra o estado 'primeira ferramenta sendo preparada'. Campos: slug, nome, status, para, resolve, formato, preco, url.",
+  "produtos": []
+}

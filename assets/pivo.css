@@ -1,0 +1,49 @@
+/* Imanto — componentes do posicionamento de ferramentas (vitrine, prova, autor).
+   Usa só os tokens de site.css: nada de cor ou fonte nova. */
+
+/* faixa de protótipo: remover antes de publicar */
+.proto{background:#FFF4D6;color:#5A4300;font-size:13px;line-height:1.45;padding:9px 0;border-bottom:1px solid #F0DC9C;position:relative;z-index:41}
+.proto .wrap{display:flex;gap:8px;flex-wrap:wrap}
+.proto strong{font-weight:600}
+
+/* marcador de dado a confirmar, visível no protótipo */
+.confirmar{background:#FFF4D6;color:#5A4300;border-radius:4px;padding:0 4px;font-size:.88em;font-style:normal;white-space:normal}
+.sec-dark .confirmar{background:rgba(255,244,214,.14);color:#FFE7A3}
+
+/* vitrine */
+.vitrine{display:grid;gap:18px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:720px){.vitrine[data-qtd="2"],.vitrine[data-qtd="4"]{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:880px){.vitrine:not([data-qtd="1"]):not([data-qtd="0"]):not([data-qtd="2"]):not([data-qtd="4"]){grid-template-columns:repeat(3,1fr)}}
+.prod{display:flex;flex-direction:column;gap:4px}
+.prod h3{font-size:20px}
+.prod .prod__para{font-size:14px;margin-top:6px}
+.prod__foot{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.prod__preco{font-family:var(--display);font-weight:600;font-size:20px;color:var(--ink)}
+.prod--destaque{padding:36px 32px}
+.prod--destaque h3{font-size:clamp(22px,3vw,30px)}
+.prod--breve{background:transparent;border-style:dashed}
+.prod--vazio{border-style:dashed;background:transparent;max-width:640px}
+
+/* lista do que é e do que não é */
+.split{display:grid;gap:18px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:760px){.split{grid-template-columns:1fr 1fr}}
+.split ul{list-style:none;margin-top:10px}
+.split li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:15.5px}
+.split li:last-child{border-bottom:0}
+
+/* autor */
+.autor{display:grid;gap:28px;grid-template-columns:1fr;align-items:start}
+@media(min-width:860px){.autor{grid-template-columns:.8fr 1.2fr;gap:56px}}
+.autor__foto{aspect-ratio:4/5;border-radius:18px;border:1px dashed var(--lineD);display:grid;place-items:center;text-align:center;padding:24px;color:var(--mutedD);font-size:14px}
+.autor p{margin-top:14px}
+.autor ul{margin-top:18px;list-style:none}
+.autor li{padding:10px 0;border-top:1px solid var(--lineD);font-size:15.5px}
+
+/* página de vitrine (link da bio) */
+.bio-head{text-align:center;padding-top:clamp(40px,6vw,72px)}
+.bio-head h1{font-size:clamp(30px,5vw,46px)}
+.bio-head .lede{margin:14px auto 0}
+.bio-links{display:grid;gap:12px;max-width:560px;margin:28px auto 0}
+.bio-links .btn{justify-content:center}
+.vitrine--bio{max-width:560px;margin-left:auto;margin-right:auto;grid-template-columns:1fr!important}
+.autor--solo{grid-template-columns:1fr!important;max-width:720px}

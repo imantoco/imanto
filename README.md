@@ -1,22 +1,38 @@
 # Imanto
 
-**Crescimento para quem faz alto padrão.**
-Parceira de crescimento para o ecossistema de construção e reforma.
+**Ferramentas de IA tiradas de um e-commerce de verdade.**
+A Imanto vende ferramentas de IA de compra única para o marketing de e-commerce, tiradas da operação da
+Aurha e prontas para o time de marketing de outras lojas usar. Posicionamento decidido em 2026-10-05
+(ver `imanto-growth-os/posicionamento/00-nucleo-pivo-ecommerce.md`).
 
-Preview (até o DNS apontar): https://mnattanglobal-hash.github.io/imanto/
-Domínio final: **https://imanto.com.br**
+Domínio: **https://imanto.com.br** · Deploy: GitHub Pages, `git push` na branch padrão, sem build.
 
-Site estático em **português do Brasil**, sem build e sem dependências. Tema claro com seções navy de impacto, gradiente azul/roxo/magenta, Space Grotesk + Inter, motivo de campo magnético. Deploy via GitHub Pages.
+Site estático em **português do Brasil**, sem dependências. Tema claro com seções navy de impacto,
+gradiente azul/roxo/magenta, Space Grotesk + Inter, motivo de campo magnético.
 
 ## Estrutura
-- `index.html`: home institucional (oferta-mãe + ecossistema de 9 verticais).
-- `servicos/`: o Motor de Receita Imanto (Núcleo + Captação, Conversão, Expansão).
-- `planejados/`, `hvac/`, `vidracaria/`: landings por vertical (fase 1). As demais (`solar`, `marmoraria`, `arquitetura`, `construtora`, `automacao`, `piscinas`) estão especificadas em `../site/estrutura-site-imanto.md`.
+- `index.html`: home (hero, dor do dono de e-commerce, como funciona, vitrine, a loja por trás, quem faz, FAQ, contato).
+- `produtos/`: vitrine completa. É o **link da bio** do @imanto.co.
+- `produtos/produtos.json`: a lista de ferramentas. Editar aqui publica na home e na vitrine.
+  Lista vazia mostra "primeira ferramenta sendo preparada". Teste dos estados: `?demo=0`, `?demo=1`, `?demo=3`.
+- `assets/vitrine.js`, `assets/pivo.css`: componente da vitrine e estilos do posicionamento novo (só tokens de `site.css`).
+- `servicos/`: redireciona para `/produtos/` (noindex). A URL fica viva porque aparece em mensagens antigas.
+- `privacidade/`, `termos/`, `exclusao-de-dados/`: páginas legais. **Não remover nem mudar a URL**: os apps
+  Meta e Google foram aprovados com elas.
+- LPs verticais com noindex (`planejados/`, `hvac/`, `vidracaria/`, `solar/`, `marmoraria/`, `arquitetura/`,
+  `construtora/`, `automacao/`, `piscinas/`): do modelo de serviço anterior. Destino pendente de decisão.
 - `assets/site.css`, `assets/site.js`: sistema visual e reveal-on-scroll compartilhados.
-- `assets/`, `logo-kit/`, `brandbook/`: favicons, ilustrações, logos e o brandbook.
-- `sitemap.xml`, `robots.txt`, `.nojekyll`.
+- `assets/`, `logo-kit/`, `brandbook/`: favicons, ilustrações, logos e o brandbook visual.
+- `sitemap.xml`, `robots.txt`, `CNAME`.
 
-> Fonte da verdade verbal: `brand-book.md`. Estilo: português do Brasil, sem travessão como muleta, sem "não é X, é Y", sem etimologia "irmanar".
+## Publicar uma ferramenta nova
+1. Página de venda pronta (página própria, checkout próprio).
+2. Adicionar o objeto em `produtos/produtos.json` com `status: "disponivel"`, `preco` e `url`.
+3. Conferir `/produtos/` e a home localmente (`python3 -m http.server`), depois push.
+
+> Fonte da verdade verbal: `brand-book.md` (§1 e §2). Estilo: português do Brasil, caixa de sentença,
+> sem travessão, sem "não é X, é Y", sem etimologia "irmanar". Contato só por contato@imanto.com.br,
+> sem WhatsApp e sem endereço.
 
 ## Logo (drop-in)
 Gere o símbolo com o prompt do projeto e coloque em `assets/`:
