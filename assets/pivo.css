@@ -46,3 +46,4 @@
 .bio-links{display:grid;gap:12px;max-width:560px;margin:28px auto 0}
 .bio-links .btn{justify-content:center}
 .vitrine--bio{max-width:560px;margin-left:auto;margin-right:auto;grid-template-columns:1fr!important}
+.autor--solo{grid-template-columns:1fr!important;max-width:720px}
