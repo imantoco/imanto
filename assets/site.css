@@ -238,3 +238,6 @@ footer{background:var(--navy);color:var(--mutedD);padding:44px 0 56px;position:r
 .sec-dark .apply h2{max-width:16ch}
 .field{display:flex;flex-direction:column;justify-content:flex-end}
 @media(min-width:960px){.apply>div:first-child{position:sticky;top:100px}}
+.founder__photo{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;object-position:center 30%;border-radius:14px;margin-bottom:20px;background:var(--navy2)}
+.hero__by{display:flex;align-items:center;gap:10px}
+.hero__by img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(123,63,242,.7);flex:none}
