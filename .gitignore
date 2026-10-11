@@ -26,3 +26,7 @@ marca-1b-simetrico.html
 
 # Arte-fonte das ilustracoes (o site usa as .webp em assets/img/)
 ilustracoes/
+
+# Artefatos do navegador automatizado
+.playwright-mcp/
+.check_jsonld.py

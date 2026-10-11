@@ -1,22 +1,22 @@
 # Imanto
 
-**Crescimento para quem faz alto padrão.**
-Parceira de crescimento para o ecossistema de construção e reforma.
+**Coprodutora de infoprodutos.** Você ensina. A gente constrói e vende junto.
 
-Preview (até o DNS apontar): https://mnattanglobal-hash.github.io/imanto/
-Domínio final: **https://imanto.com.br**
+Domínio: **https://imanto.com.br** (GitHub Pages, publicar = push em `main`).
 
-Site estático em **português do Brasil**, sem build e sem dependências. Tema claro com seções navy de impacto, gradiente azul/roxo/magenta, Space Grotesk + Inter, motivo de campo magnético. Deploy via GitHub Pages.
+Site estático em **português do Brasil**, sem build e sem dependências. Tema claro com seções navy de impacto, gradiente azul/roxo/magenta, Space Grotesk + Inter, motivo de campo magnético.
 
 ## Estrutura
-- `index.html`: home institucional (oferta-mãe + ecossistema de 9 verticais).
-- `servicos/`: o Motor de Receita Imanto (Núcleo + Captação, Conversão, Expansão).
-- `planejados/`, `hvac/`, `vidracaria/`: landings por vertical (fase 1). As demais (`solar`, `marmoraria`, `arquitetura`, `construtora`, `automacao`, `piscinas`) estão especificadas em `../site/estrutura-site-imanto.md`.
-- `assets/site.css`, `assets/site.js`: sistema visual e reveal-on-scroll compartilhados.
-- `assets/`, `logo-kit/`, `brandbook/`: favicons, ilustrações, logos e o brandbook.
-- `sitemap.xml`, `robots.txt`, `.nojekyll`.
+- `index.html`: home de coprodutora (para quem, quem faz o quê, como funciona, combinados, quem somos, perguntas) e o formulário do processo seletivo (`#aplicar`).
+- `quem-somos/`: a Imanto e o fundador.
+- O formulário envia para `https://form.imanto.com.br/aplicar` (Cloudflare Worker `imanto-form`, código em `Imanto-OS/infra/form-site/`), que avisa no Telegram e por e-mail.
+- `privacidade/`, `termos/`, `exclusao-de-dados/`: páginas legais. **As URLs não mudam** (apps Meta e Google dependem delas).
+- `servicos/` e as 9 landings de nicho (`planejados/`, `hvac/` etc.): só redirecionam para `/` desde 2026-10-11. O conteúdo antigo está na branch `arquivo-pre-coprodutora`.
+- `assets/site.css`, `assets/site.js`: sistema visual, reveal-on-scroll e envio do formulário.
+- `assets/`, `logo-kit/`: favicons, ilustrações, logos e a imagem OG.
+- `sitemap.xml`, `robots.txt`.
 
-> Fonte da verdade verbal: `brand-book.md`. Estilo: português do Brasil, sem travessão como muleta, sem "não é X, é Y", sem etimologia "irmanar".
+> Fonte da verdade verbal: `Imanto-OS/_contexto/marca.md`. Estilo: português do Brasil, sem travessão, sem "não é X, é Y", sem etimologia "irmanar", número só com fonte.
 
 ## Logo (drop-in)
 Gere o símbolo com o prompt do projeto e coloque em `assets/`:
