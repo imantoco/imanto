@@ -12,11 +12,9 @@
   });
 })();
 
-/* Imanto — formulário do processo seletivo (envia para form.imanto.com.br, que avisa no Telegram e por e-mail) */
-(function(){
-  var f=document.getElementById("form-aplicar");
-  if(!f)return;
-  var t0=Date.now(), box=f.closest(".form"), msg=box.querySelector(".form__msg"), btn=f.querySelector("button[type=submit]");
+/* Imanto — formulários do site (especialistas e suporte). Enviam para form.imanto.com.br, que avisa no Telegram e por e-mail */
+document.querySelectorAll("form[data-form]").forEach(function(f){
+  var t0=Date.now(), box=f.closest(".form"), msg=box.querySelector(".form__msg"), btn=f.querySelector("button[type=submit]"), rotulo=btn.textContent;
   function erro(txt){msg.className="form__msg err";msg.innerHTML=txt;}
   f.addEventListener("submit",function(ev){
     ev.preventDefault();
@@ -35,12 +33,10 @@
       .then(function(j){
         if(!j.ok)throw new Error("falhou");
         box.classList.add("sent");
-        if(window.fbq)window.fbq("track","Lead");
-        if(window.gtag)window.gtag("event","generate_lead");
       })
       .catch(function(){
-        btn.disabled=false; btn.textContent="Enviar aplicação";
-        erro('Não conseguimos enviar agora. Tente de novo em instantes ou escreva para <a href="mailto:contato@imanto.com.br?subject=Processo%20seletivo" style="color:#fff;text-decoration:underline">contato@imanto.com.br</a>.');
+        btn.disabled=false; btn.textContent=rotulo;
+        erro('Não conseguimos enviar agora. Tente de novo em instantes ou escreva para <a href="mailto:contato@imanto.com.br?subject='+encodeURIComponent(f.dataset.assunto||"Contato")+'" style="color:#fff;text-decoration:underline">contato@imanto.com.br</a>.');
       });
   });
-})();
+});

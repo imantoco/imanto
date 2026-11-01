@@ -1,17 +1,20 @@
 # Imanto
 
-**Coprodutora de infoprodutos.** Você ensina. A gente constrói e vende junto.
+Site institucional da Imanto, escrito para **quem compra** e para **especialistas**. Discurso público: "Guias, kits e cursos digitais" · "Conhecimento prático para a vida real." (revisado em 2026-11-01).
+
+> Linguagem interna (IA, AI first, low ticket, infoproduto, tráfego, lucro, ROAS) **não aparece no site**: decisão do Matheus em 2026-11-01. A única menção a IA fica na Política de Privacidade, no aviso legal do atendimento automático do Direct.
 
 Domínio: **https://imanto.com.br** (GitHub Pages, publicar = push em `main`).
 
 Site estático em **português do Brasil**, sem build e sem dependências. Tema claro com seções navy de impacto, gradiente azul/roxo/magenta, Space Grotesk + Inter, motivo de campo magnético.
 
 ## Estrutura
-- `index.html`: home de coprodutora (para quem, quem faz o quê, como funciona, combinados, quem somos, perguntas) e o formulário do processo seletivo (`#aplicar`).
+- `index.html`: home (como são os produtos, compre com tranquilidade, o nome, quem somos, formulário para especialistas `#especialistas`, perguntas, formulário de suporte `#suporte`). A marca de cada produto fica na página do nicho; aqui a Imanto aparece como responsável.
 - `quem-somos/`: a Imanto e o fundador.
-- O formulário envia para `https://form.imanto.com.br/aplicar` (Cloudflare Worker `imanto-form`, código em `Imanto-OS/infra/form-site/`), que avisa no Telegram e por e-mail.
+- Os dois formulários (`form[data-form]` em `assets/site.js`) enviam para o Worker `imanto-form` (`Imanto-OS/infra/form-site/`): `POST /especialista` e `POST /suporte`, que avisam no Telegram e por e-mail. O processo seletivo de coprodução (`/aplicar`) saiu do site em 2026-11-01.
 - `privacidade/`, `termos/`, `exclusao-de-dados/`: páginas legais. **As URLs não mudam** (apps Meta e Google dependem delas).
 - `servicos/` e as 9 landings de nicho (`planejados/`, `hvac/` etc.): só redirecionam para `/` desde 2026-10-11. O conteúdo antigo está na branch `arquivo-pre-coprodutora`.
+- `_build/og.html`: fonte da imagem `assets/imanto-og.jpg` (screenshot 1200×630).
 - `assets/site.css`, `assets/site.js`: sistema visual, reveal-on-scroll e envio do formulário.
 - `assets/`, `logo-kit/`: favicons, ilustrações, logos e a imagem OG.
 - `sitemap.xml`, `robots.txt`.
