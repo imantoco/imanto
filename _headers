@@ -1,0 +1,6 @@
+# Mãe Que Dorme Tranquila (Alquimia): sem indexar (decisão 2026-11-08)
+/mae-que-dorme-tranquila
+  X-Robots-Tag: noindex, nofollow
+/mae-que-dorme-tranquila/*
+  X-Robots-Tag: noindex, nofollow
+
