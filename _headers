@@ -4,3 +4,9 @@
 /mae-que-dorme-tranquila/*
   X-Robots-Tag: noindex, nofollow
 
+
+# Enxoval Sem Arrependimento (Imanto, Ticto): sem indexar (decisão 2026-11-08)
+/enxoval
+  X-Robots-Tag: noindex, nofollow
+/enxoval/*
+  X-Robots-Tag: noindex, nofollow
