@@ -14,7 +14,7 @@
 <!-- Gerada por .claude/skills/pagina-vendas (14 blocos, apostila LTM 2.0 + padrões do Virtus). Fonte: /Users/matheusnattan/Imanto-OS/clientes/matheus/ofertas/entrevista-de-emprego/producao/paginas-imanto/_build/conteudo.py · página entrevista -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RXE861NK2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-8RXE861NK2",{page_title:"Kit do Que Falar na Entrevista"});</script><script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RXE861NK2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-8RXE861NK2",{page_title:"Kit do Que Falar na Entrevista",linker:{domains:["ticto.app","hotmart.com"]}});</script><script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
 fbq("init","1764454544623468");fbq("track","PageView");
 fbq("track","ViewContent",{content_name:"Kit do Que Falar na Entrevista",content_type:"product",value:37,currency:"BRL"});
@@ -192,18 +192,24 @@ summary:after{content:"+";position:absolute;right:2px;top:-3px;font-size:24px;co
 </div></footer>
 <script>
 (function(){
-  var qs=new URLSearchParams(location.search);
+  /* vale o ÚLTIMO valor de cada parâmetro: o anúncio de escala reaproveita o post do teste e o Meta acrescenta o utm_campaign dele no fim */
+  var qs0=new URLSearchParams(location.search);
+  var qs={get:function(k){var v=qs0.getAll(k);return v.length?v[v.length-1]:null;}};
   var raw=(qs.get("utm_content")||qs.get("utm_term")||qs.get("utm_campaign")||"");
   var tag=raw.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9_-]+/g,"_").slice(0,60);
   document.querySelectorAll("a[data-checkout]").forEach(function(a){
     var cta=a.getAttribute("data-cta");
     if(tag&&a.href.indexOf("sck=")>-1){a.href=a.href.replace(/sck=[^&]*/,"sck=kfe_imanto_"+cta+"_"+tag);}
     /* fbclid segue para o checkout: a Compra volta atribuída ao anúncio (portão /rastreamento-lancamento). */
-    var fb=qs.get("fbclid");if(fb&&a.href.indexOf("fbclid=")<0&&a.getAttribute("href")!=="#"){a.href+=(a.href.indexOf("?")>-1?"&":"?")+"fbclid="+encodeURIComponent(fb);}
+    /* utm_* também: a Ticto grava no pedido (relatório de vendas por campanha e criativo). */
+    if(a.getAttribute("href")!=="#"){["fbclid","utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var v=qs.get(k);if(v&&a.href.indexOf(k+"=")<0){a.href+=(a.href.indexOf("?")>-1?"&":"?")+k+"="+encodeURIComponent(v);}});}
     a.addEventListener("click",function(ev){
       /* InitiateCheckout no clique (regra de 2026-10-20), um por visita. */
       if(window.fbq&&!window.__ic){window.__ic=1;fbq("track","InitiateCheckout",{content_name:"Kit do Que Falar na Entrevista",content_type:"product",value:37,currency:"BRL"},{eventID:"ic_kfe_imanto_"+Date.now()});}
       if(window.gtag)gtag("event","begin_checkout",{cta:cta,oferta:"kfe_imanto",value:37,currency:"BRL"});
+      /* _gl (id do GA da visita) no checkout: a Ticto grava no pedido e o aviso de vendas manda o purchase pelo servidor
+         com o client_id e a session_id certos (Pix pago com a página fechada). O gtag nem sempre decora sozinho. */
+      if("8RXE861NK2"&&a.getAttribute("href")!=="#"&&a.href.indexOf("_gl=")<0){try{var ck=document.cookie,ga=(ck.match(/(?:^|; )_ga=GA\d\.\d\.([^;]+)/)||[])[1],gs=(ck.match(/(?:^|; )_ga_8RXE861NK2=([^;]+)/)||[])[1],e=function(x){return btoa(x).replace(/=/g,".")};if(ga){a.href+=(a.href.indexOf("?")>-1?"&":"?")+"_gl="+encodeURIComponent("1*imt*_ga*"+e(ga)+(gs?"*_ga_8RXE861NK2*"+e(gs):""));}}catch(x){}}
       if(window.clarity)clarity("event","cta_clicado_"+cta);
       if(a.getAttribute("href")==="#"){ev.preventDefault();}
     });
